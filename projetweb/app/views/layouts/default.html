@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<style>
+  .active{
+      background-color: red;
+  }
+    #nav-content{
+        background-color: rebeccapurple;
+    }
+</style>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Miage News :: <?= $title_for_layout; ?></title>
+        <link rel="stylesheet" href="app/assets/css/bootstrap.min.css">
+        <link rel="icon" href="app/assets/image/news.jpg">
+    </head>
+    <body>
+        <nav class="navbar navbar-inverse" style="border-radius: 0;">
+                <header class="navbar-header" >
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a href="#" class="navbar-brand">Miage News</a>
+                </header>
+
+                <div id="nav-content" style="margin: auto">
+                    <ul class="nav navbar-nav">
+                        <li class="col-lg"><a  href="?controller=article&action=accueil"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Accueil</a></li>
+                        <li class="col-lg"><a href="?controller=article&action=sport"><span class="glyphicon glyphicon-flag" aria-hidden="true"></span> Sports</a></li>
+                        <li class="col-lg"><a href="?controller=article&action=international"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> International</a></li>
+                        <li class="col-lg"><a href="?controller=contact&action=contact"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Contacts</a></li>
+                        <?php if (isset($_SESSION['Auth'])): ?>
+                        <li class="col-lg"><a href="#"><span class="glyphicon glyphicon-star" aria-hidden="true"></span> Mes favoris</a></li>
+                        <?php endif; ?>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <?php if (isset($_SESSION['Auth'])): ?>
+                        <div  style="width: 140px;"><li><span style="color:darkgrey;padding: auto"><?php echo $_SESSION['Auth']['username'];?></span></li>
+                            <li><a href="?controller=user&action=logout" style="color:darkgrey;padding: auto;">Se déconnecter</a></li>
+                        </div>
+                        <?php else: ?>
+                            <li><a href="?controller=user&action=login">Se connecter</a></li>
+                             <li style="width: 140px;"><a href="?controller=user&action=subscribe">S'inscrire</a></li>
+                        <?php endif; ?>
+                    </ul>
+                </div>
+        </nav>
+        <div>
+            <?php
+                $this->session->getFlash();
+                echo $content_for_layout;
+            ?>
+        </div>
+    </body>
+</html>

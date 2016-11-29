@@ -1,0 +1,22 @@
+<meta charset="UTF8">
+<style>
+    .A{
+        float:left;
+        width:50%;
+    }
+
+</style>
+<div class="A">
+<ol>
+    <?php foreach ($article as $v): ?>
+
+    <li><?= $v->nom_article; ?></li><br/>
+
+
+    <?php endforeach; ?>
+</ol>
+</div>
+<div class = "A">
+    <a href="?controller=article&action=recette" > <img src="app/assets/image/guacamole.jpg" alt="guacamole"></a>
+    <h1 style="text-align: center">Nos recettes</h1>
+</div>

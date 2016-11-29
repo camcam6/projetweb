@@ -1,0 +1,19 @@
+<meta charset="UTF-8">
+<style>
+    .A{
+        float:left;
+        width:50%;
+    }
+
+</style>
+    <?php foreach ($international as $v): ?>
+
+        <b><?= $v->nom_article; ?></b><br/>
+
+    <div class="A">
+        <?= $v->description; ?>
+    </div>
+
+
+    <?php endforeach; ?>
+
