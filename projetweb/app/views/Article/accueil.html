@@ -1,22 +1,38 @@
 <meta charset="UTF8">
 <style>
-    .A{
-        float:left;
-        width:50%;
+    .table{
+        border-color:red;
     }
-
+   #fusion{
+        text-align: center;
+       font-size: 20px;
+       color: purple;
+    }
+    th{
+        font-size:15px;
+    }
+    td{
+        font-family: "Times New Roman";
+    }
 </style>
-<div class="A">
-<ol>
-    <?php foreach ($article as $v): ?>
+<table class="table">
+    <thead>
+    <tr>
+        <th id="fusion"colspan="2">Nos articles</th>
+    </tr>
+    <tr>
+        <th>Articles</th>
+        <th>Date de parution</th>
+    </tr>
+    </thead>
+    <tbody>
 
-    <li><?= $v->nom_article; ?></li><br/>
+<?php foreach ($article as $v): ?>
+    <tr>
+        <td><?php echo $v->nom_article?></td>
+        <td><?php echo $v->date_parution?></td>
+    </tr>
+<?php endforeach?>
 
-
-    <?php endforeach; ?>
-</ol>
-</div>
-<div class = "A">
-    <a href="?controller=article&action=recette" > <img src="app/assets/image/guacamole.jpg" alt="guacamole"></a>
-    <h1 style="text-align: center">Nos recettes</h1>
-</div>
+    </tbody>
+</table>

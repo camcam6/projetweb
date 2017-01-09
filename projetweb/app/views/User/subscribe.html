@@ -1,52 +1,10 @@
-<style>
-    body {
-        padding-top: 40px;
-        padding-bottom: 40px;
-        background-color: #eee;
-    }
 
-    .form-signin {
-        max-width: 330px;
-        padding: 15px;
-        margin: 0 auto;
-    }
-    .form-signin .form-signin-heading,
-    .form-signin .checkbox {
-        margin-bottom: 10px;
-    }
-    .form-signin .checkbox {
-        font-weight: normal;
-    }
-    .form-signin .form-control {
-        position: relative;
-        height: auto;
-        -webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        box-sizing: border-box;
-        padding: 10px;
-        font-size: 16px;
-    }
-    .form-signin .form-control:focus {
-        z-index: 2;
-    }
-    .form-signin input[type="text"] {
-        margin-bottom: -1px;
-        border-bottom-right-radius: 0;
-        border-bottom-left-radius: 0;
-    }
-    .form-signin input[type="password"] {
-        margin-bottom: 10px;
-        border-top-left-radius: 0;
-        border-top-right-radius: 0;
-    }
-</style>
-
+<link rel="stylesheet" href="app/assets/css/connection.css">
 <form action="?controller=user&action=subscribe" method="POST" class="form-signin">
     <h2 class="form-signin-heading">Inscription</h2>
     <input type="text" name="username" id="username" class="form-control" placeholder="Nom d'utilisateur" required autofocus>
-    <input type="mail" name="mail" id="mail" class="form-control" placeholder="mail@mail.fr" required>
+    <input type="email" name="mail" id="mail" class="form-control" placeholder="mail@mail.fr" required>
     <input type="password" name="password" id="password" class="form-control" placeholder="Mot de passe" required>
-
 
     <input type="submit" class="btn btn-lg btn-primary btn-block" value="S'inscrire">
 </form>

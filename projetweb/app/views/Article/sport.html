@@ -1,18 +1,19 @@
 <meta charset="UTF-8">
-<style>
-    .A{
-        float:left;
-        width:50%;
-    }
-
-</style>
-<?php foreach ($sport as $v): ?>
-
-<b><?= $v->nom_article; ?></b><br/>
+<link rel="stylesheet" href="app/assets/css/article.css">
 
 <div class="A">
+<?php foreach ($sport as $v): ?>
+<? $i =1?>
+<h3><?= $v->nom_article; ?></h3><br/>
+<video controls="controls" class="displayed" src="app/assets/video/ozil.mp4"  width="500" height="312"></video><br/>
+
     <?= $v->description; ?>
-</div>
 
 
 <?php endforeach; ?>
+
+</div>
+
+<!--<img class="displayed" src="app/assets/image/image<?php echo $i?>.jpg" alt="image" height="100px" width="100px"></br>
+   <video controls="controls" class="displayed" src="app/assets/video/ozil.mp4"  width="500" height="312"></video><br/>
+   -->

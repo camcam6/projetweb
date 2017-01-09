@@ -1,14 +1,8 @@
 <meta charset="UTF-8">
-<style>
-    .A{
-        float:left;
-        width:50%;
-    }
-
-</style>
+<link rel="stylesheet" href="app/assets/css/article.css">
     <?php foreach ($international as $v): ?>
 
-        <b><?= $v->nom_article; ?></b><br/>
+        <h3><?= $v->nom_article; ?></h3><br/>
 
     <div class="A">
         <?= $v->description; ?>
