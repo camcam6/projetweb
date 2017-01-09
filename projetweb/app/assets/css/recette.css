@@ -1,0 +1,17 @@
+
+.A{
+    float:left;
+    width:50%;
+}
+
+.B{
+    float:right;
+    width:50%;
+}
+a:hover {
+    color: purple;
+    text-decoration: none;
+}
+a{
+    color:grey;
+}
