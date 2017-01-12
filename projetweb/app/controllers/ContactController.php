@@ -57,7 +57,7 @@ class ContactController extends AppController
 
 
         if($mail->Send())
-            header('Location: ?controller=main&ok=1');
+            header('Location: ?controller=article&ok=1');
         else
             header('Location: ?controller=contact&action=contact&ok=0');
 
