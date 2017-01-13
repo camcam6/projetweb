@@ -56,6 +56,7 @@ class ArticleController extends AppController{
     public function sport(){
         $this->loadModel();
 
+        //chercher les articles de catégorie de sport
         $sport = $this->Article->find(
             [
                 'where'=>[
