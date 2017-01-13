@@ -11,14 +11,16 @@ class UserController extends AppController {
             {
             $this->loadModel();
                 $login = $_POST['username'] ;
-                $password = $_POST['password'] ;
+                $password = $_POST['password'];
+                $pass = sha1($password);
             $exist = $this->User->find([
                 'where' => [
                     'login' => "$login",
-                    'password' =>"$password"
+                    'password' =>"$pass"
                 ]
             ]);
 
+            //si utilisateur existe on crée une session
             if ($exist)
             {
                 $_SESSION['Auth'] = $_POST;
@@ -44,12 +46,15 @@ class UserController extends AppController {
             $login = $_POST['username'] ;
             $password = $_POST['password'] ;
             $email = $_POST['mail'];
+            $pass = sha1($password);
+            //insertion dans la base de données du nouvel utilisateur
             $exist = $this->User->save([
                     'login' => "$login",
-                    'password' =>"$password",
+                    'password' =>"$pass",
                     'email'=>"$email"
             ]);
 
+            //si insertion réussi, on stocke les données en session
             if ($exist)
             {
                 $_SESSION['Auth'] = $_POST;

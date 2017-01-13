@@ -15,21 +15,27 @@ use core\AppController;
 class ArticleController extends AppController{
 
     public function accueil(){
+        //charge le model Article
         $this->loadModel();
 
+        //cherche toutes les données de la table Article
         $article = $this->Article->find();
 
         $this->set(compact('article'));
+        //affiche la vue accueil.html
         $this->render('accueil');
     }
 
     public function recette()
     {
+        //charge la vue recettes.html
         $this->render('recettes');
     }
     public function international(){
         $this->loadModel();
 
+        //cherche les articles de catégorie internationale en faisant une jointure
+        //entre la table article et catégorie
         $international = $this->Article->find(
             [
                 'where'=>[

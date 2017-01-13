@@ -18,7 +18,7 @@
 
 
 
-<form class="form-horizontal"  name="form" action="?controller=contact&action=sendMail" method="post" onsubmit="return check()" >
+<form class="form-horizontal"  name="form" action="?controller=contact&action=sendMail" method="post"  >
     <div class="form-group">
         <label class="control-label col-sm-2" for="name">Nom:</label>
         <div class="col-sm-10">
@@ -51,7 +51,7 @@
     </div>
     <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
-            <button type="submit" class="btn btn-success btn-block">Envoyer</button>
+            <button type="submit" class="btn btn-success btn-block" onclick="return check()">Envoyer</button>
         </div>
     </div>
 </form>
@@ -61,6 +61,7 @@
     function check(){
         var topic = document.form.topic.value;
         var message = document.form.message.value;
+
         if ( topic == "" || message==""){
             alert("Merci de remplir les champs Sujet et Message");
             return false;

@@ -18,9 +18,11 @@ class ContactController extends AppController
     }
 
     public function sendMail(){
+        // inclut la librairie phpMailer pour l'envoie de mail
         require_once dirname(__DIR__) . '/lib/PHPMailer/class.phpmailer.php';
         require_once dirname(__DIR__) . '/lib/PHPMailer/class.smtp.php';
 
+        //recupere le mail (utile que pour le site en ligne
         if (isset($_SESSION['Auth'])){
             $from = $_SESSION['Auth']['mail'];
         }else{
@@ -44,16 +46,18 @@ class ContactController extends AppController
         $mail->Username = $compte_smtp;
         $mail->Password = $mdp_smtp;*/
 
+
         $mail->IsHTML(true);
         $mail->From = "neveu.devs@gmail.com";
         $mail->FromName = "Neveu Devs";
 
+        //adresse à changer (celle qui recevra le mail
         $mail->AddAddress("camilleneveu12@gmail.com");
         /*$mail->AddCC($email_copie); // copie du mail
         $mail->AddBCC($email_copie_cache);*/ // copie du mail en caché
 
         $mail->Subject = $objet;
-        $mail->Body = $mail_contenu;
+        $mail->Body = '<h1>'.$objet.'</h1><p>'.$mail_contenu.'</p>';
 
 
         if($mail->Send())
